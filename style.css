@@ -11,17 +11,17 @@ body{
   flex-direction: column;
 }
 header,
-.mylibrarylog {
+.my-library-log {
   display: flex;
   padding: 20px;
 }
-.topPage {
+.top-page {
  
   top: 0;
   align-items: center;
   justify-content: space-between;
   background-color: rgb(226, 212, 189);
-  button {
+ .add-books{
     width: clamp(90px, 50%, 150px);
     height: 30px;
     border: none;
@@ -30,9 +30,8 @@ header,
     color: aliceblue;
     font-size: 12px;
   }
-  .livriTop{
+  .img-book-header{
     border-radius: 50%;
-    
   }
   h2{
     font-family: 'Times New Roman', Times, serif;
@@ -76,7 +75,7 @@ main{
         transform: scale(1.1);
       }
     }
-    .cardSession{
+    .cards-session{
       border:1px solid transparent;
       
     }
@@ -88,6 +87,8 @@ main{
   left: 0;
   width: 100vw;
   height: 100vh;
+  max-height: 100vh;
+  max-width: 100vw;
   z-index: 5;
 }
 form{
@@ -100,7 +101,7 @@ form{
    top:50%;
    transform: translate(-50%,-50%);
    z-index: 10;
-   .styleForm{
+   .style-form{
     display: flex;
     flex-direction: column;
     justify-content: center;

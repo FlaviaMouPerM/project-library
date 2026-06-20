@@ -17,26 +17,31 @@
        autor, título, número de páginas, se já foi lido
 
      -->
-    <header class="topPage">
-      <div class="mylibrarylog">
-        <img src="./img/livro.png" alt="livro" class="livriTop" width="50" />
+    <header class="top-page">
+      <div class="my-library-log">
+        <img
+          src="./img/livro.png"
+          alt="livro"
+          class="img-book-header"
+          width="50"
+        />
         <section class="text">
           <h2>Minha Livraria</h2>
           <p>Meus Livros, minhas histórias</p>
         </section>
       </div>
-      <button type="button" class="openModal">+ Add Books</button>
+      <button type="button" class="add-books">+ Add Books</button>
     </header>
     <main>
       <div class="read-books">
-        <section class="cardSession">
+        <section class="cards-session">
           <header>
             <h2 class="read">Books read</h2>
             <p>Books that are on my list</p>
           </header>
           <div class="cards">
             <article>
-              <header class="topCard">
+              <header class="top-of-article">
                 <h1>The Art of War</h1>
               </header>
               <section>
@@ -60,7 +65,7 @@
 
           <div class="cards">
             <article>
-              <header class="topCard">
+              <header class="top-of-article">
                 <h1>The Art of War</h1>
               </header>
               <section>
@@ -73,36 +78,36 @@
         </section>
         <img src="./img/Li.png" alt="livro" />
       </div>
-      <div class="modal" style="display: none;">
-      <form class="myForm"  style="display: none">
-        <div class="styleForm title">
-          <label for="title">Title</label>
-          <input type="text" id="title" name="title" />
-        </div>
-        <div class="styleForm">
-          <label for="author">Author</label>
-          <input type="text" id="author" name="author" />
-        </div>
-        <div class="styleForm">
-          <label for="pages">Pages</label>
-          <input type="number" id="pages" name="pages" />
-        </div>
-        <div class="styleRadio">
-          <div>
-            <input type="radio" id="read" name="read" value="read" />
-            <label for="read">Read</label>
+      <dialog class="modal">
+        <form class="my-form">
+          <div class="style-form title">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" />
+          </div>
+          <div class="style-form">
+            <label for="author">Author</label>
+            <input type="text" id="author" name="author" />
+          </div>
+          <div class="style-form">
+            <label for="pages">Pages</label>
+            <input type="number" id="pages" name="pages" />
+          </div>
+          <div class="style-radio">
+            <div>
+              <input type="radio" id="read" name="read" value="read" checked />
+              <label for="read">Read</label>
+            </div>
+            <div>
+              <input type="radio" id="not-read" name="read" value="not-read" />
+              <label for="not-red">Not Read</label>
+            </div>
           </div>
           <div>
-            <input type="radio" id="notRed" name="read" value="not-read" />
-            <label for="not-red">Not Read</label>
-          </div>  
-        </div>
-        <div>
-          <button type="submit" class="sendForm" >Enviar</button>
-          <button type="button" class="closeModal">Cancelar</button>
-        </div>
-      </form>
-      </div>
+            <button type="submit" class="send-form">Enviar</button>
+            <button type="button" class="close-modal">Cancelar</button>
+          </div>
+        </form>
+      </dialog>
     </main>
     <footer>
       <div>

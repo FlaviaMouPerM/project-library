@@ -1,50 +1,42 @@
-const form = document.querySelector(".myForm");
+const form = document.querySelector(".my-form");
 const modal = document.querySelector(".modal");
-const openModal = document.querySelector(".openModal");
-const closeModal = document.querySelector(".closeModal");
-const sendForm = document.querySelector(".sendForm");
+const addBooks = document.querySelector(".add-books");
+const closeModalEl = document.querySelector(".close-modal");
+const sendForm = document.querySelector(".send-form");
 const myLibrary = [];
-let title = "",
-  book="";
-  author = "",
-  pages = "",
-  read = "";
-function AddBook() {
-  form.style.display = "block";
-  modal.style.display = "block";
+
+function closeModal() {
+  modal.close();
 }
 
-function CloseModal() {
-  form.style.display = "none";
-  modal.style.display = "none";
+function openModal() {
+  modal.showModal();
 }
 
-sendForm.addEventListener("click", function (event) {
+form.addEventListener("submit", function (event) {
   event.preventDefault();
   const id = crypto.randomUUID();
-  title = document.getElementById("title").value;
-  author = document.getElementById("author").value;
-  pages = document.getElementById("pages").value;
-  read = document.querySelector("input[name='read']:checked").value;
-  //   console.log(`titulo: ${title},
-  // autor: ${author},
-  // paginas: ${pages},
-  // lido: ${read}.`)
- book = new Books(id, title, author, pages, read);
+ 
+  const dados = new FormData(form);
+  const title = dados.get("title")
+  const author = dados.get("author")
+  const pages = dados.get("pages")
+  const read = dados.get("read")
+
+  book = new Books(id, title, author, pages, read);
   function Books(id, title, author, pages, read) {
     this.id = id;
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
+  }
   
-    };
-    console.log("O que tem aqui?");
-    console.log(book);
-    
-   myLibrary.push(book);
-  });
+  myLibrary.push(book);
+  console.log(myLibrary);
+  form.reset();
+  closeModal();
+});
 
-console.log(myLibrary);
-openModal.addEventListener("click", AddBook);
-closeModal.addEventListener("click", CloseModal);
+addBooks.addEventListener("click", openModal);
+closeModalEl.addEventListener("click", closeModal                                                                         );
