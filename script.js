@@ -19,65 +19,68 @@ function openModal() {
   modal.showModal();
 }
 function deliteCard(e) {
-  const cardArticle = e.target.closest(".article-cards");
-  const idDoCard = cardArticle.dataset.id;
-   const indice = myLibrary.findIndex(card => card.id === idDoCard );
-   console.log("o indice do carde é: ", indice);
+
+  const idCard = e.target.closest("article").id;
+  console.log("o id do card é: ", idCard);
+  const indice = myLibrary.findIndex((book) => book.id === idCard)
+  console.log("o indice do card é: ", indice);
 }
 
 function creatNewCard() {
   cards.innerHTML = "";
 
-  for (let i = 0; i <= myLibrary.length; i++) {
+  for (let i = 0; i < myLibrary.length; i++) {
     //criando article atribuindo id e class
     const article = document.createElement("article");
     article.classList.add("article-cards");
-    
-       
+    const idCard = document.createElement("p");
+    article.id = myLibrary[i].id;
+
     //criando header atribuindo class
-    const headerArticle = document.createElement("header"); 
-    headerArticle.classList.add("top-of-article"); 
-    
+    const headerArticle = document.createElement("header");
+    headerArticle.classList.add("top-of-article");
+
     // criando  titulo atribuindo class
-    const title = document.createElement("h1"); 
-    title.textContent = myLibrary[i].title; 
-     
+    const title = document.createElement("h1");
+    title.textContent = myLibrary[i].title;
+
     // criando section do card
-    const cardSection = document.createElement("section"); 
-    cardSection.classList.add("cards-section"); 
-      
+    const cardSection = document.createElement("section");
+    cardSection.classList.add("cards-section");
+
     // criando Paragrafo do autor do livro
-    const author = document.createElement("p"); 
-    author.classList.add("author"); 
-    author.textContent = myLibrary[i].author; 
-    
+    const author = document.createElement("p");
+    author.classList.add("author");
+    author.textContent = myLibrary[i].author;
+
     // criando numero de paginas
-    const pages = document.createElement("p"); 
-    pages.classList.add("pages"); 
-    pages.textContent = myLibrary[i].pages; 
-    
+    const pages = document.createElement("p");
+    pages.classList.add("pages");
+    pages.textContent = myLibrary[i].pages;
+
     // criando div para estilo e separação
-    const cardStyles = document.createElement("div"); 
-    cardStyles.classList.add("card-styles"); 
-     
+    const cardStyles = document.createElement("div");
+    cardStyles.classList.add("card-styles");
+
     // criando div para estilo e separação
-    const div = document.createElement("div"); 
-    
-    // criando paragrafo para apresentar as mensagens lidas ou não/ atribuindo class 
-    const reading = document.createElement("p"); 
-    reading.classList.add("reading"); 
-    reading.textContent = myLibrary[i].read; 
-   
+    const div = document.createElement("div");
+
+    // criando paragrafo para apresentar as mensagens lidas ou não/ atribuindo class
+    const reading = document.createElement("p");
+    reading.classList.add("reading");
+    reading.textContent = myLibrary[i].read;
+
     // criando div para estilo e separação
-    const btn = document.createElement("div"); 
-    btn.classList.add("btn"); 
-    
+    const btn = document.createElement("div");
+    btn.classList.add("btn");
+
     // criando botao que apaga o card
     const btnDeliteCard = document.createElement("button");
-    btnDeliteCard.classList.add("delete-card"); 
+    btnDeliteCard.classList.add("delete-card");
     btnDeliteCard.addEventListener("click", deliteCard);
 
     cards.appendChild(article);
+    article.appendChild(idCard);
     article.appendChild(headerArticle);
     headerArticle.appendChild(title);
     article.appendChild(cardSection);
@@ -95,13 +98,15 @@ form.addEventListener("submit", function (event) {
   event.preventDefault();
 
   const dados = new FormData(form);
+  const id = crypto.randomUUID();
   const title = dados.get("title");
   const author = dados.get("author");
   const pages = dados.get("pages");
   const read = dados.get("read");
 
-  const book = new Books(title, author, pages, read);
-  function Books(title, author, pages, read) {
+  const book = new Books(id, title, author, pages, read);
+  function Books(id, title, author, pages, read) {
+    this.id = id;
     this.title = title;
     this.author = author;
     this.pages = pages;
