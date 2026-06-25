@@ -36,48 +36,37 @@
       <div class="read-books">
         <section class="cards-session">
           <header>
+            <div>
             <h2 class="read">Books read</h2>
-            <p>Books that are on my list</p>
+            <p class="messagem-read">Books that are on my list</p>
+            </div>
           </header>
           <div class="cards">
-            <article>
+            <article class="article-cards" data-id="c98e2454-3e74-408e-bb1f-946fdcc6d0bd">
               <header class="top-of-article">
                 <h1>The Art of War</h1>
               </header>
-              <section>
-                <p>Sun Tzu</p>
-                <p>PG:112</p>
+              <section class="cards-section">
+                
+                <p class="author">Sun Tzu</p>
+                <p class="pages">PG:112</p>
+               
               </section>
-              <div>lido</div>
+              <div class="card-styles">
+              <div>
+                <p class="reading">read</p>
+              </div>
+              <div class="btn">
+                  <button class="delete-card"></button>
+              </div>
+              </div>
             </article>
           </div>
         </section>
-
+        <div>
         <img src="./img/Ler.png" alt="Livros" />
       </div>
 
-      <div class="to-read">
-        <section class="cardSession">
-          <header>
-            <h2 class="read">To read</h2>
-            <p>Books I've finished</p>
-          </header>
-
-          <div class="cards">
-            <article>
-              <header class="top-of-article">
-                <h1>The Art of War</h1>
-              </header>
-              <section>
-                <p>Sun Tzu</p>
-                <p>PG:112</p>
-              </section>
-              <div>Status</div>
-            </article>
-          </div>
-        </section>
-        <img src="./img/Li.png" alt="livro" />
-      </div>
       <dialog class="modal">
         <form class="my-form">
           <div class="style-form title">
@@ -102,7 +91,7 @@
               <label for="not-red">Not Read</label>
             </div>
           </div>
-          <div>
+          <div class="btn-submit">
             <button type="submit" class="send-form">Enviar</button>
             <button type="button" class="close-modal">Cancelar</button>
           </div>
@@ -119,3 +108,4 @@
     <script src="script.js"></script>
   </body>
 </html>
+
