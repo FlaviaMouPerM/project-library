@@ -22,8 +22,11 @@ function deliteCard(e) {
 
   const idCard = e.target.closest("article").id;
   console.log("o id do card é: ", idCard);
-  const indice = myLibrary.findIndex((book) => book.id === idCard)
-  console.log("o indice do card é: ", indice);
+  const indice = myLibrary.findIndex((book) => book.id === idCard);
+  console.log(indice);
+  myLibrary.splice(indice,1);
+  console.log(myLibrary);
+  creatNewCard();
 }
 
 function creatNewCard() {
